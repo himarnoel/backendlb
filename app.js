@@ -2,6 +2,7 @@ const dotenv = require("dotenv")
 dotenv.config()
 
 const express = require("express")
+const cors = require('cors');
 const morgan = require("morgan")
 const cookieParser = require("cookie-parser")
 const sessions = require("express-session")
@@ -10,6 +11,7 @@ const { connectDb } = require("./src/db")
 const { UserModel } = require("./src/models/user")
 const app = express()
 
+app.use(cors());
 app.use(morgan("dev"))
 app.use(express.json())
 app.use(cookieParser())
