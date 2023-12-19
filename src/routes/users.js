@@ -80,8 +80,9 @@ router.post("/return", async (req, res, next) => {
 })
 
 router.get("/borrowed-books", async (req, res, next) => {
+  const userId = "64dacd64b89fe7a1243bc8e4"
   try {
-    const result = await BookModel.find({ borrowedBy: { $in: req.userId } })
+    const result = await BookModel.find({ borrowedBy: { $in: userId } })
     console.log(result)
     return res.status(200).json({ books: result })
   } catch (err) {
